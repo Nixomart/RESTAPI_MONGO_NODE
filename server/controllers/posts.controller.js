@@ -7,7 +7,10 @@ export const getPosts = async (req, res) => {
 
 export const addPost = async (req, res) => {
   try {
+
     const { title, description } = req.body;
+    
+    console.log(req.files)
     const newPost = new Post({ title, description });
     await newPost.save();
     return res.json(newPost);
