@@ -2,20 +2,23 @@ import { Schema, model } from "mongoose";
 
 const PostSchema = new Schema({
     title: {
-        require: true,
+        required: true,
         type: String,
         trim: true,
     },
     description: {
         type: String,
-        require: true,
+        required: true,
         trim: true,
     },
     image: {
         url: String,
         public_id: String,
-    }
-
-})
+    },
+},
+{
+    timestamps: true,
+    versionKey: false,
+  })
 
 export default model('PostSchema', PostSchema);

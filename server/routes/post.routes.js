@@ -6,7 +6,7 @@ const router = Router()
 
 router.get('/posts', getPosts)
 
-router.post('/posts', addPost)
+router.post('/addPost', addPost)
 
 router.put('/posts/:id', updatePost)
 

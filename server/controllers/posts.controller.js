@@ -13,7 +13,7 @@ export const addPost = async (req, res) => {
     const { title, description } = req.body;
     let image;
     //validacion si imagen existe
-    if(req.files.image){
+    if(req.files?.image){
       const result = await uploadImage(req.files.image.tempFilePath)
       image = {
         url: result.secure_url,
@@ -34,7 +34,7 @@ export const updatePost = async (req, res) => {
   try {
     const post = await Post.findByIdAndUpdate(req.params.id, req.body, {new: true});
     console.log(post)
-    return res.send('recived')
+    return res.json(post);
   } catch (error) {}
   res.send("posts update");
 };
